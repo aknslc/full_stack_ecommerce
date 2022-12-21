@@ -7,6 +7,7 @@ import userRoute from './routes/users.js'
 import productRoute from './routes/products.js'
 import authRoute from './routes/auth.js'
 import commentRoute from './routes/comment.js'
+import orderRoute from './routes/orders.js'
 
 env.config();
 const app = express();
@@ -30,6 +31,7 @@ app.use('/api/auth', authRoute)
 app.use('/api/users', userRoute)
 app.use('/api/products', productRoute)
 app.use('/api/comments', commentRoute)
+app.use('/api/orders', orderRoute)
 
 
 

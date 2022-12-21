@@ -20,19 +20,15 @@ $breakpoints: (
 }
 
 .productComments {
-    width: 70% !important;
-    margin: 5rem auto;
-
-    border: 1px solid mixin.$light-gray;
-    padding: 2rem;
 
 
-    @include respond-to('medium') {
-        width: 100% !important;
+    h3{
+        font-size: 1.8rem !important;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 100;
+        margin-bottom: 3rem;
     }
-
-
-
     .commentsArea {
         margin-bottom: 5rem;
 
@@ -67,12 +63,11 @@ $breakpoints: (
 
     }
 
-
     .userComments {
         height: 300px;
         overflow: auto;
         margin-top: 2rem;
-
+        margin-bottom: 5rem;
         .commentsItem {
             position: relative;
             border: 1px solid mixin.$light-gray;

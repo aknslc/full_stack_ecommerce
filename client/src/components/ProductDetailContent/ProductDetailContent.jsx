@@ -4,6 +4,7 @@ import styles from './productdetailcontent.module.scss'
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { AiTwotoneStar } from 'react-icons/ai'
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -29,7 +30,7 @@ const ProductDetailContent = ({ product }) => {
     return (
         <div className={styles.productDetailContainer}>
             <div className="container">
-                <div className="row align-items-center" style={{border:"1px solid rgb(223, 223, 223)", borderRadius:"1rem", padding:"3rem"}}>
+                <div className="row align-items-center" style={{padding: "3rem" }}>
                     <div className="col-lg-6 col-md-12">
                         <div className={styles.imageContainer}>
                             <img src={product.images} alt="" />
@@ -39,8 +40,18 @@ const ProductDetailContent = ({ product }) => {
                         <div className={styles.detailContainer}>
                             <h2 className={styles.title}>{product.title}</h2>
                             <p className={styles.description}>{product.description}</p>
-                            <p className={styles.price}>Price: ${product.price}</p>
-                            <button onClick={() => addToCart(product, ()=>handleClick())} className={styles.addToCart}>ADD TO CART</button>
+
+                            <span className='lead'>Rating</span>
+                            <div className="stars d-flex align-items-center justify-content-start">
+                                <AiTwotoneStar color='orange' size={15} />
+                                <AiTwotoneStar color='orange' size={15} />
+                                <AiTwotoneStar color='orange' size={15} />
+                                <AiTwotoneStar color='orange' size={15} />
+                                <AiTwotoneStar color='orange' size={15} />
+                            </div>
+                            <hr />
+                            <p className={styles.price}><span>Price: </span>${product.price}</p>
+                            <button onClick={() => addToCart(product, () => handleClick())} className={styles.addToCart}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>

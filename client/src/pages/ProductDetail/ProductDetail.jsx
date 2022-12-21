@@ -5,6 +5,7 @@ import useFetch from '../../hooks/useFetch'
 import Header from '../../components/Header/Header'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
+import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts'
 import ProductDetailContent from '../../components/ProductDetailContent/ProductDetailContent'
 import ProductComments from '../../components/ProductComments/ProductComments'
 const ProductDetail = () => {
@@ -19,6 +20,7 @@ const ProductDetail = () => {
       <Header />
       <Navbar />
       <ProductDetailContent product={data} />
+      <FeaturedProducts  />
       <ProductComments product={data}/>
       <Footer/>
  

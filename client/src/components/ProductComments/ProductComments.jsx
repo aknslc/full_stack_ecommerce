@@ -45,7 +45,7 @@ const ProductComments = () => {
     <div className={styles.productComments}>
       <div className="container">
         <div className="text-center">
-          <h3 className='text-secondary fs-1 my-5'>Product Reviews</h3>
+          <h3>Product Reviews</h3>
         </div>
         <form onSubmit={formik.handleSubmit} className={`${styles.commentsArea}`}>
 

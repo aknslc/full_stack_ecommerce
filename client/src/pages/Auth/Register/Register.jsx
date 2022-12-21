@@ -20,7 +20,7 @@ const Register = () => {
     onSubmit: async values => {
 
       try {
-        const res = await axios.post('/auth/register', values)
+        await axios.post('/auth/register', values)
         navigate('/login')
       } catch (err) {
         setErrorMessage(err.response.data.message)

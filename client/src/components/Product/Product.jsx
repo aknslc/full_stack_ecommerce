@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './product.module.scss'
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+
 import { useCart } from '../../context/CartContext'
 import { useFavorite } from '../../context/FavoriteContext'
 
@@ -36,7 +36,7 @@ const Product = ({ product }) => {
     return (
         <div className={styles.productCard}>
 
-            <Link to={`/products/${product._id}`} className={styles.productDetails}>
+            <a href={`/products/${product._id}`} className={styles.productDetails}>
                 <img src={product.images} alt={product.title} />
 
                 <div className={styles.title}>
@@ -45,7 +45,7 @@ const Product = ({ product }) => {
                 <div className={styles.price}>
                     $ {product.price}
                 </div>
-            </Link>
+            </a>
 
             <div className={styles.buttons}>
                 <AiOutlineHeart onClick={() => addToFavorite(product)} size={25}

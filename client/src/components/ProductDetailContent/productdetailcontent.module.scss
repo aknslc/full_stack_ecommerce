@@ -30,10 +30,11 @@ $breakpoints: (
 
         img {
             margin-bottom: 3rem;
-            object-fit: contain;
-            border-radius: .2rem;
+            object-fit: cover;
+            border-radius: 2rem;
             height: 450px;
-            width: 100%;
+            width: 80%;
+    
 
             @include respond-to('medium') {
                 width: 100% !important;
@@ -47,9 +48,9 @@ $breakpoints: (
         gap: 15px;
         .title {
             font-size: 2.5rem;
-            font-weight: 500;
+            font-weight: 100;
             text-align: start;
-            color: gray;
+            color: mixin.$primary-color;
 
             @include respond-to('medium') {
                 text-align: center;
@@ -57,7 +58,8 @@ $breakpoints: (
         }
 
         .description {
-            font-size: 1.5rem !important;
+            font-size: 1.3rem !important;
+
             letter-spacing: 1px;
             text-align: start;
             margin: 2rem 0;
@@ -70,8 +72,11 @@ $breakpoints: (
 
         .price {
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 500;
 
+            span{
+                font-weight: 100;
+            }
             @include respond-to('medium') {
                 text-align: center;
             }
