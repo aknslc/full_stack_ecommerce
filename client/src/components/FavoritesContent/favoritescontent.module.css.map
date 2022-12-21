@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,2BAAI;AAGJ,AAAA,eAAe,CAAA;EACX,MAAM,EAAE,MAAM;CACjB",
+    "sources": [
+        "favoritescontent.module.scss"
+    ],
+    "names": [],
+    "file": "favoritescontent.module.css"
+}

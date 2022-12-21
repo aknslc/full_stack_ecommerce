@@ -1,0 +1,52 @@
+@use "../../index.scss" as mixin;
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+
+
+
+.allProducts{
+
+    .filterArea{
+        border: 1px solid mixin.$light-gray;
+        height: auto;
+        padding: 3rem;
+
+        h3{
+            font-size: 1.8rem !important;
+            font-weight: 600;
+            margin-bottom: 2rem;
+
+        }
+        label{
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1.6rem;
+            font-weight: 100;
+        }
+    }
+
+    .productArea{
+
+    }
+}

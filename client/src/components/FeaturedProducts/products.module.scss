@@ -1,0 +1,28 @@
+@use "../../index.scss" as mixin;
+
+
+
+.products {
+    margin: 7rem 0;
+
+    .sectionTitle {
+        color: mixin.$secondary-color;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .allProductsBtn{
+        border: 1px solid mixin.$light-gray;
+        background-color: transparent;
+        padding: 1rem;
+        font-weight: 100;
+        font-size: 1.7rem !important;
+        margin: 3rem 0;
+        display: inline-block;
+
+    }
+
+}

@@ -1,0 +1,141 @@
+@use "../../index.scss" as mixin;
+
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+
+.cartContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 3rem;
+        color: mixin.$primary-color;
+        margin-bottom: 3rem;
+    }
+
+    .leftContainer {
+        height: 400px;
+        overflow: auto;
+        border-bottom: 5px solid mixin.$light-gray;
+        position: relative;
+
+        .emptyCartContainer {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-40%, -50%
+            );
+        color: mixin.$light-gray;
+    }
+
+    .cartItems {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid mixin.$light-gray;
+
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: fill;
+
+            @include respond-to('small') {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .productInfo {
+
+            margin-left: 1rem;
+
+            @include respond-to('small') {
+                margin-left: .5rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+
+                @include respond-to('small') {
+                    font-size: 1.2rem;
+                }
+            }
+
+            p {
+                font-size: 1.5rem !important;
+                margin: 0 !important;
+                padding: 0 !important;
+
+                @include respond-to('small') {
+                    font-size: 1.2rem !important;
+                }
+            }
+        }
+
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            
+            button {
+                border: none;
+                margin: 0 1rem;
+                padding: .5rem 1rem;
+                font-size: 1.7rem;
+            }
+
+            span {
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
+
+
+
+.totalArea {
+    height: 400px;
+    position: relative;
+    padding: 1rem;
+
+
+
+    .totalContent {
+        p {
+            position: absolute;
+            bottom: 10rem;
+            right: 25px;
+        }
+
+        button {
+            position: absolute;
+            bottom: 20px;
+            right: 0px;
+            width: 100%;
+            padding: 1rem 0;
+        }
+    }
+
+
+}
+}

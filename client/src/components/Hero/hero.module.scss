@@ -1,0 +1,50 @@
+@use "../../index.scss" as mixin;
+
+
+.hero {
+    width: 100%;
+
+    .heroContainer {
+        position: relative;
+
+        .heroImage {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        .heroContent {
+            position: absolute;
+            top: 60%;
+            left: 5%;
+
+            h4 {
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: mixin.$white;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 3rem !important;
+                color: mixin.$white;
+                letter-spacing: 1.5px;
+            }
+
+            .shopNow {
+                border: 3px solid mixin.$white;
+                padding: 1rem 3rem;
+                font-size: 1.7rem;
+                background-color: transparent;
+                color: mixin.$white;
+                font-weight: 600;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,114 @@
+@use "../../index.scss" as mixin;
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+nav {
+
+    @include respond-to('medium') {
+        display: none;
+    }
+
+    .mainNav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem !important;
+        margin-top: 1rem;
+        position: relative;
+
+        .mainNavItem {
+            padding: 1rem;
+
+            .mainNavLink {
+                display: flex;
+                align-items: center;
+                font-size: 1.6rem !important;
+                text-transform: capitalize;
+                font-weight: 500;
+
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+
+
+            .dropDownMenu {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: auto;
+                color: mixin.$white;
+                padding: 2rem !important;
+                background-color: mixin.$white;
+                z-index: 10;
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.3s ease-in 0s,
+                    visibility .25s ease-in;
+
+                .dropDownItem {
+
+                    h3 {
+                        color: mixin.$secondary-color;
+                        margin-top: 2.5rem;
+                        font-size: 1.8rem;
+                    }
+
+                    .dropDownLink {
+                        color: mixin.$primary-color !important;
+                        font-size: 1.5rem !important;
+
+
+                        &:hover {
+                            opacity: .7;
+                        }
+                    }
+
+                    .dropDownItemImage {
+                        width: 100%;
+
+                        img {
+                            width: 100% !important;
+                            margin: 1rem 0;
+                            height: 200px;
+                            border-radius: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .dropdownLi {
+            &:hover .dropDownMenu {
+                visibility: visible;
+                opacity: 1;
+                top: 54px;
+
+                @include respond-to('medium') {
+                    visibility: hidden;
+                    opacity: 0;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,21 @@
+@use "../../index.scss" as mixin;
+
+.brands {
+    margin: 3rem 0;
+
+    .brandsItem {
+        border: 1px solid rgb(222, 219, 219);
+        border-radius: 50%;
+        width: 100px !important;
+        margin: 0 auto !important;
+        display: block !important;
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            mix-blend-mode: color-burn;
+
+        }
+    }
+
+}

@@ -1,0 +1,115 @@
+@use "../../index.scss" as mixin;
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+.productComments {
+    width: 70% !important;
+    margin: 5rem auto;
+
+    border: 1px solid mixin.$light-gray;
+    padding: 2rem;
+
+
+    @include respond-to('medium') {
+        width: 100% !important;
+    }
+
+
+
+    .commentsArea {
+        margin-bottom: 5rem;
+
+        .inputDiv {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            textarea {
+                border: none;
+                border: 1px solid mixin.$light-gray;
+                width: 100%;
+                padding: 1rem;
+                outline: none;
+                border-radius: .5rem;
+                font-size: 1.5rem;
+                display: block;
+            }
+
+            button {
+                font-size: 1.5rem;
+                border: 1px solid mixin.$light-gray;
+                border-radius: 5px;
+                color: gray;
+                padding: .5rem;
+                margin: 1rem 0;
+                background-color: transparent;
+            }
+        }
+
+
+    }
+
+
+    .userComments {
+        height: 300px;
+        overflow: auto;
+        margin-top: 2rem;
+
+        .commentsItem {
+            position: relative;
+            border: 1px solid mixin.$light-gray;
+            padding: 2rem;
+            margin-bottom: 1rem;
+
+
+            .commentsContent {
+                font-size: 1.5rem;
+                font-weight: 100;
+                color: gray;
+                padding: 2rem 0;
+            }
+
+            .commentsAuthor {
+                position: absolute;
+                top: 1rem;
+                left: 2rem;
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                font-size: 1.2rem;
+                margin: 0 !important;
+                color: gray;
+
+            }
+
+            .commentsDate {
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2rem;
+                opacity: .7;
+            }
+
+        }
+
+
+    }
+}

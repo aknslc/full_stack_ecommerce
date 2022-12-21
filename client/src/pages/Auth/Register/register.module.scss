@@ -1,0 +1,40 @@
+@use "../../../index.scss" as mixin;
+
+
+.formContainer {
+
+    form {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .formTitle{
+            font-size: 2.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 5rem;
+        }
+    }
+
+    input {
+        outline: none;
+        padding: 1rem 1rem;
+        border: none;
+        margin: 1rem 0;
+        border: 1px solid mixin.$light-gray;
+        color: mixin.$primary-color;
+        font-size: 2rem;
+    }
+
+    .submitBtn {
+        padding: .5rem 2rem;
+        font-size: 1.5rem;
+        border: 1px solid mixin.$light-gray;
+        background-color: mixin.$white;
+        margin: 1rem 0;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+}

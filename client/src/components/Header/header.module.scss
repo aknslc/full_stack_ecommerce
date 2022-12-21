@@ -1,0 +1,73 @@
+@use "../../index.scss" as mixin;
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    z-index: 200;
+    background-color: mixin.$white;
+    border-bottom: 1px solid #f5f5f5;
+    .headerContent {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        .logo {
+            span{
+                font-size: 2.5rem;
+                font-weight: 100;
+            }
+
+
+        }
+
+        .accountNavigationContainer {
+            display: flex;
+            align-items: center;
+
+            .accountItem {
+                display: flex;
+                align-items: center;
+                margin-left: 3rem;
+                cursor: pointer;
+
+                span{
+                    font-size: 1.4rem;
+                }
+                .accountItemDetail {
+                    font-size: 1.6rem;
+                    margin-left: 5px;
+
+                    @include respond-to('medium') {
+                        display: none;
+                    }
+
+                
+                }
+
+
+            }
+        }
+    }
+
+
+
+}

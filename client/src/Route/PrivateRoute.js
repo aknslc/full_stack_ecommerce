@@ -1,0 +1,25 @@
+
+import { Navigate } from "react-router-dom";
+
+import { useAuth } from "../context/AuthContext";
+
+
+
+export const PrivateLoginRegisterRoute = ({children})=>{
+
+    const {user} = useAuth();
+
+    if(user) return <Navigate to='/'/>
+
+
+    return children
+}
+export const PrivateCartRoute = ({children})=>{
+
+    const {user} = useAuth();
+
+    if(!user) return <Navigate to='/login'/>
+
+
+    return children
+}

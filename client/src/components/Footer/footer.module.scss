@@ -1,0 +1,79 @@
+@use "../../index.scss" as mixin;
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+footer {
+    background-color: rgb(32, 32, 32);
+    padding: 5rem;
+    margin-top: 2rem;
+    
+    .footerItem {
+
+        .footerContentTitle {
+            font-size: 2.5rem;
+            color: mixin.$white;
+            font-weight: 700;
+            @include respond-to('medium') {
+                text-align: center;
+                margin: 2rem 0;
+            }
+        }
+
+        .socialMediaIcon{
+            font-size: 2rem;
+            color: mixin.$white;
+            margin: 10px 5px;
+            font-weight: 500;
+
+        }
+        .socialMediaIcons{
+    
+            @include respond-to('medium') {
+                text-align: center;
+            }
+        }
+
+        .footerContentLink {
+            margin: 1rem 0;
+
+            @include respond-to('medium') {
+                text-align: center;
+            }
+            a {
+                color: mixin.$light-gray !important;
+                font-size: 1.3rem !important;
+                font-weight: 100 !important;
+
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
+    }
+
+    .footerDesc{
+        color: mixin.$white;
+        font-size: 1.5rem !important;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-align: center;
+        margin: 3rem;
+    }
+}

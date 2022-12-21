@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+
+
+// variables
+$primary-color : #212121;
+$secondary-color : #C29C6D;
+$light-blue: #009EFF;
+$light-gray: rgb(223, 223, 223);
+$white : #fff;
+$primary-font : 'Roboto', sans-serif;
+
+html {
+  font-size: 10px !important;
+}
+
+body {
+  font-family: $primary-font !important;
+}
+
+
+p {
+  font-size: 1.8rem !important;
+}
+
+a {
+  text-decoration: none !important;
+  font-size: 1.8rem !important;
+  color: $primary-color !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 !important;
+}
+
+
+// confirm custom ui css
+
+
+.confirm-custom-ui{
+  border: 1px solid $light-gray;
+  padding: 5rem;
+}

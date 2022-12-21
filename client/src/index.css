@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+html {
+  font-size: 10px !important;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+}
+
+p {
+  font-size: 1.8rem !important;
+}
+
+a {
+  text-decoration: none !important;
+  font-size: 1.8rem !important;
+  color: #212121 !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 !important;
+}
+
+.confirm-custom-ui {
+  border: 1px solid #dfdfdf;
+  padding: 5rem;
+}
+/*# sourceMappingURL=index.css.map */

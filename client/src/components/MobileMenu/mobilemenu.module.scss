@@ -1,0 +1,70 @@
+@use "../../index.scss" as mixin;
+
+// breakpoints for responsive
+$breakpoints: (
+    'xsmall': 576px,
+    'small': 767px,
+    'medium': 992px,
+    'large': 1200px) !default;
+
+@mixin respond-to($breakpoint) {
+
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Prints a media query based on the value
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+}
+
+.maxWidth {
+    max-width: 50% !important;
+
+    @include respond-to('xsmall') {
+        max-width: 55% !important;
+    }
+
+    .mobileMenuNav {
+        width: 100%;
+        margin: 5rem 0;
+        padding: 2rem !important;
+
+        @include respond-to('xsmall') {
+            padding: 0 !important;
+        }
+
+        .navItem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+
+            .navLink {
+                display: block;
+                font-size: 2.5rem !important;
+                margin: 1rem;
+
+                @include respond-to('small') {
+                    font-size: 2rem !important;
+                }
+
+                @include respond-to('xsmall') {
+                    font-size: 1.3rem !important;
+                }
+
+            }
+        }
+    }
+}
+
+.hamburgerIcon {
+    display: none;
+
+    @include respond-to('medium') {
+        display: block;
+        color: mixin.$primary-color;
+    }
+
+}

@@ -1,0 +1,43 @@
+@use "../../index.scss" as mixin;
+
+
+
+
+
+.favoritesItem {
+    border: 1px solid mixin.$light-gray;
+    position: relative;
+    margin: 1rem 0;
+
+
+    img {
+        width: 100%;
+        height: 300px;
+        padding: 3rem;
+        object-fit: contain;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.5rem !important;
+        text-align: center;
+
+    }
+
+    .heartIconContainer {
+        position: absolute;
+        top: .5rem;
+        right: 1rem;
+
+        .heartIcon {
+            color: red;
+            cursor: pointer;
+        }
+    }
+
+
+}

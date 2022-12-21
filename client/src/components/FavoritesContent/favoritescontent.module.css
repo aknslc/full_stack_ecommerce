@@ -1,0 +1,5 @@
+@use "../../index.scss" as mixin;
+.favoritesItems {
+  margin: 5rem 0;
+}
+/*# sourceMappingURL=favoritescontent.module.css.map */
