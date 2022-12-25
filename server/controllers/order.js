@@ -25,7 +25,11 @@ export const getOrder = async (req, res, next) => {
 export const createOrder = async (req, res, next) => {
     try {
 
-        const newOrder = await new Order(req.body)
+        const newOrder = await new Order({
+            user: req.user.id,
+            address: req.body.address,
+            items: req.body.items
+        })
         newOrder.save();
         res.status(200).json(newOrder)
 

@@ -96,7 +96,7 @@ $breakpoints: (
         .quantity {
             display: flex;
             align-items: center;
-            
+
             button {
                 border: none;
                 margin: 0 1rem;
@@ -134,8 +134,32 @@ $breakpoints: (
             width: 100%;
             padding: 1rem 0;
         }
+
+
     }
 
 
+
+
+
 }
+}
+
+
+.orderModalForm {
+    width: 100%;
+    label{
+        display: block;
+        font-size: 2rem;
+        color: mixin.$primary-color;
+        margin: 1rem 0;
+    }
+    input {
+        outline: none;
+        display: block;
+        padding: 1rem;
+        border: 1px solid mixin.$light-blue;
+        font-size: 1.7rem;
+        margin: 1rem 0;
+    }
 }

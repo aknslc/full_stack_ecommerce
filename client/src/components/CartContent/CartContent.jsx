@@ -2,13 +2,45 @@ import React from 'react'
 import styles from './cartcontent.module.scss'
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { useCart } from '../../context/CartContext'
+import { useFormik } from 'formik';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import Modal from 'react-modal';
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+    },
+};
+
 
 const CartContent = () => {
     const { cart, total, increase, decrease, confirmAlertFunc } = useCart();
 
-    
-    
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            address: '',
+            items: cart,
+        },
+        onSubmit: async values => {
+            const res = await axios.post('/orders', values)
+            alert('ORDERED')
+        },
+    });
     return (
         <div className={styles.cartContent}>
 
@@ -64,8 +96,29 @@ const CartContent = () => {
                             <div className={styles.totalContent}>
                                 <p>Total: $ {total}</p>
                                 <div>
-                                    <button disabled={cart.length === 0} className='btn btn-success btn-lg'>Order</button>
+                                    <button onClick={openModal} disabled={cart.length === 0} className='btn btn-success btn-lg'>Order</button>
                                 </div>
+
+                                <Modal
+                                    isOpen={modalIsOpen}
+                                    onRequestClose={closeModal}
+                                    style={customStyles}
+                                    ariaHideApp={false}
+                                >
+
+                                    <form className={styles.orderModalForm} onSubmit={formik.handleSubmit}>
+                                        <label htmlFor="address">ADRESS</label>
+                                        <input
+                                            id="address"
+                                            name="address"
+                                            type="text"
+                                            onChange={formik.handleChange}
+                                            value={formik.values.address}
+                                        />
+                                        <button className='btn btn-success btn-lg fs-4' type="submit">Order and Pay</button>
+                                    </form>
+
+                                </Modal>
                             </div>
                         </div>
                     </div>
