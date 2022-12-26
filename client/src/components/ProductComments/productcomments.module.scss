@@ -21,90 +21,125 @@ $breakpoints: (
 
 .productComments {
 
+    .inner {
 
-    h3{
-        font-size: 1.8rem !important;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        font-weight: 100;
-        margin-bottom: 3rem;
-    }
-    .commentsArea {
-        margin-bottom: 5rem;
 
-        .inputDiv {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+        .innerLeft {
+            padding: 5rem;
+            border: 3px solid #f3f3f3;
+            border-radius: 15px;
+            -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03
+            );
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03);
 
-            textarea {
-                border: none;
-                border: 1px solid mixin.$light-gray;
-                width: 100%;
-                padding: 1rem;
-                outline: none;
-                border-radius: .5rem;
-                font-size: 1.5rem;
-                display: block;
-            }
-
-            button {
-                font-size: 1.5rem;
-                border: 1px solid mixin.$light-gray;
-                border-radius: 5px;
-                color: gray;
-                padding: .5rem;
-                margin: 1rem 0;
-                background-color: transparent;
-            }
+        h3 {
+            font-size: 1.8rem !important;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 100;
+            margin-bottom: 3rem;
         }
 
+        .commentsArea {
+            margin-bottom: 5rem;
 
-    }
-
-    .userComments {
-        height: 300px;
-        overflow: auto;
-        margin-top: 2rem;
-        margin-bottom: 5rem;
-        .commentsItem {
-            position: relative;
-            border: 1px solid mixin.$light-gray;
-            padding: 2rem;
-            margin-bottom: 1rem;
-
-
-            .commentsContent {
-                font-size: 1.5rem;
-                font-weight: 100;
-                color: gray;
-                padding: 2rem 0;
-            }
-
-            .commentsAuthor {
-                position: absolute;
-                top: 1rem;
-                left: 2rem;
+            .inputDiv {
+                position: relative;
                 display: flex;
-                align-items: center;
-                gap: .5rem;
-                font-size: 1.2rem;
-                margin: 0 !important;
-                color: gray;
+                flex-direction: column;
+                align-items: flex-end;
+
+                textarea {
+                    border: none;
+                    border: 1px solid mixin.$light-gray;
+                    width: 100%;
+                    padding: 1rem;
+                    outline: none;
+                    border-radius: .5rem;
+                    font-size: 1.5rem;
+                    display: block;
+                }
+
+                button {
+                    font-size: 1.5rem;
+                    border: 1px solid mixin.$light-gray;
+                    border-radius: 5px;
+                    color: gray;
+                    padding: .5rem;
+                    margin: 1rem 0;
+                    background-color: transparent;
+                }
+            }
+
+
+        }
+
+        .userComments {
+            height: 300px;
+            overflow: auto;
+            margin-top: 2rem;
+            margin-bottom: 5rem;
+
+            .commentsItem {
+                position: relative;
+                padding: 2rem;
+                margin-bottom: 1rem;
+                border: 3px solid #f3f3f3;
+                border-radius: 15px;
+                -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03);
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03);
+
+
+                .commentsContent {
+                    font-size: 1.5rem;
+                    font-weight: 100;
+                    color: gray;
+                    padding: 2rem 0;
+                }
+
+                .commentsAuthor {
+                    position: absolute;
+                    top: 1rem;
+                    left: 2rem;
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    font-size: 1.2rem;
+                    margin: 0 !important;
+                    color: gray;
+
+                }
+
+                .commentsDate {
+                    position: absolute;
+                    bottom: 15px;
+                    right: 15px;
+                    font-size: 1.2rem;
+                    opacity: .7;
+                }
 
             }
 
-            .commentsDate {
-                position: absolute;
-                bottom: 15px;
-                right: 15px;
-                font-size: 1.2rem;
-                opacity: .7;
-            }
 
+        }
+    }
+
+
+    .innerRight {
+        padding: 10rem;
+
+        .content {
+            
+
+            img {
+                width: 100%;
+                border-radius: 1.5rem !important;
+            }
         }
 
 
     }
+}
+
+
 }

@@ -24,6 +24,13 @@ $breakpoints: (
     padding: 5rem 0 !important;
     margin: 5rem 0;
 
+    .inner {
+        border: 1px solid #f3f3f3;
+        border-radius: 15px;
+        -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03
+        );
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.03);
+
 
     .imageContainer {
         width: 100%;
@@ -34,7 +41,7 @@ $breakpoints: (
             border-radius: 2rem;
             height: 450px;
             width: 80%;
-    
+
 
             @include respond-to('medium') {
                 width: 100% !important;
@@ -46,6 +53,7 @@ $breakpoints: (
         display: flex;
         flex-direction: column;
         gap: 15px;
+
         .title {
             font-size: 2.5rem;
             font-weight: 100;
@@ -74,50 +82,54 @@ $breakpoints: (
             text-transform: uppercase;
             font-weight: 500;
 
-            span{
+            span {
                 font-weight: 100;
             }
+
             @include respond-to('medium') {
                 text-align: center;
             }
         }
 
         .addToCart {
-            border: 1px solid rgb(217, 216, 216
-            );
-        width: 100%;
-        padding: 1rem 2rem;
-        font-size: 2rem;
-        margin: 4rem 0;
-        background-color: mixin.$white;
-        color: mixin.$primary-color;
-    }
-
-    .buttonsArea {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        margin: 2rem 0;
-
-        @include respond-to('medium') {
-            justify-content: center;
-        }
-
-        span {
+            border: 1px solid rgb(217, 216, 216);
+            width: 100%;
+            padding: 1rem 2rem;
             font-size: 2rem;
-            margin: 0 2rem;
-            padding: 0 1.5rem;
-            border: 1px solid mixin.$primary-color;
-
+            margin: 4rem 0;
+            background-color: mixin.$white;
+            color: mixin.$primary-color;
         }
 
-        .increaseDecrease {
-            border: none;
-            background-color: transparent;
-            font-size: 3rem;
-            padding: 0;
+        .buttonsArea {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 2rem 0;
+
+            @include respond-to('medium') {
+                justify-content: center;
+            }
+
+            span {
+                font-size: 2rem;
+                margin: 0 2rem;
+                padding: 0 1.5rem;
+                border: 1px solid mixin.$primary-color;
+
+            }
+
+            .increaseDecrease {
+                border: none;
+                background-color: transparent;
+                font-size: 3rem;
+                padding: 0;
+            }
         }
     }
 }
+
+
+
 
 }

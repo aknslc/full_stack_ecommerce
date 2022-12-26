@@ -13,10 +13,10 @@ const OrderSchema = new mongoose.Schema({
         required: true,
     },
     items: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Product',
-        },
+        // {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'Product',
+        // },
     ]
 
 }, { timestamps: true })

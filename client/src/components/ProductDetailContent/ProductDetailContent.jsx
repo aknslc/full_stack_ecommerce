@@ -9,6 +9,8 @@ import { AiTwotoneStar } from 'react-icons/ai'
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
+
+
 const ProductDetailContent = ({ product }) => {
     const { addToCart } = useCart();
 
@@ -30,7 +32,7 @@ const ProductDetailContent = ({ product }) => {
     return (
         <div className={styles.productDetailContainer}>
             <div className="container">
-                <div className="row align-items-center" style={{padding: "3rem" }}>
+                <div className={`${styles.inner} row`} style={{padding: "3rem" }}>
                     <div className="col-lg-6 col-md-12">
                         <div className={styles.imageContainer}>
                             <img src={product.images} alt="" />

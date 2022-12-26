@@ -4,7 +4,8 @@ import { createContext, useContext, useState, useEffect } from "react";
 const FavoriteContext = createContext();
 
 const FavoriteProvider = ({ children }) => {
-    const [favorite, setFavorite] = useState([]);
+    const [favorite, setFavorite] = useState(JSON.parse(localStorage.getItem("favorite")) || []);
+
     const addToFavorite = (product) => {
         const checkFavorite = favorite.find(item => item._id === product._id);
         if (checkFavorite) {
@@ -18,13 +19,15 @@ const FavoriteProvider = ({ children }) => {
             }])
         }
     }
-    
-    const removeItem = (product) => {     
+
+    const removeItem = (product) => {
         setFavorite([...favorite.filter(item => item._id !== product._id)])
     }
 
     useEffect(() => {
-        console.log(favorite)
+        localStorage.setItem('favorite', JSON.stringify(favorite))
+
+     
     }, [favorite])
 
     const values = {

@@ -22,7 +22,7 @@ const FeaturedProducts = () => {
                     </div>
                 
                 <div className='text-center'>
-                    <Link to={"/products"} className={styles.allProductsBtn}>All Products</Link>
+                    <a href="/products" className={styles.allProductsBtn}>All Products</a>
                 </div>
             </div>
         </section>

@@ -9,21 +9,21 @@ import FeaturedProducts from '../../components/FeaturedProducts/FeaturedProducts
 import ProductDetailContent from '../../components/ProductDetailContent/ProductDetailContent'
 import ProductComments from '../../components/ProductComments/ProductComments'
 const ProductDetail = () => {
-  
-  const { id } = useParams()
-  const {data} = useFetch(`/products/${id}`);
 
-  
+  const { id } = useParams()
+  const { data } = useFetch(`/products/${id}`);
+
+
 
   return (
     <>
       <Header />
       <Navbar />
       <ProductDetailContent product={data} />
-      <FeaturedProducts  />
-      <ProductComments product={data}/>
-      <Footer/>
- 
+      <ProductComments product={data} />
+      <FeaturedProducts />
+      <Footer />
+
     </>
   )
 }
