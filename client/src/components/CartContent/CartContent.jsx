@@ -111,7 +111,7 @@ const CartContent = () => {
                                 >
 
                                     <form className={styles.orderModalForm} onSubmit={formik.handleSubmit}>
-                                        <label htmlFor="address">ADRESS</label>
+                                        <label htmlFor="address">ADDRESS</label>
                                         <input
                                             id="address"
                                             name="address"
