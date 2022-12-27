@@ -9,7 +9,7 @@ import { AiTwotoneStar } from 'react-icons/ai'
 import { IoIosArrowDown } from 'react-icons/io'
 import { useAuth } from '../../context/AuthContext';
 import speacialImg from '../../assets/detail.avif'
-
+const commentsPerRow = 2;
 const ProductComments = () => {
   const { id } = useParams();
   const { data } = useFetch(`/comments/${id}`)
@@ -17,15 +17,11 @@ const ProductComments = () => {
 
   const navigate = useNavigate();
   // comment load more
-  const [next, setNext] = useState(0);
-  const [commentPerLoad, setCommentPerLoad] = useState(2)
-  const [commentsArray, setCommentsArray] = useState([])
-  const dataToShow = data.slice(next, commentPerLoad);
-  const handleToShowMore = () => {
-    setNext((prev) => prev + 2)
-    setCommentPerLoad((prev) => prev + 2)
-    setCommentsArray([...commentsArray, ...dataToShow])
-  }
+  const [next, setNext] = useState(commentsPerRow);
+  const handleMoreComment = () => {
+    setNext(next + commentsPerRow);
+  };
+
   // formik
   const formik = useFormik({
     initialValues: {
@@ -46,66 +42,55 @@ const ProductComments = () => {
     <div className={styles.productComments}>
       <div className="container">
         <div className={styles.inner}>
-          <div class="row">
-            <div className={`${styles.innerLeft} col-lg-8`}>
-              <div className="text-center">
-                <h3>Product Reviews</h3>
-              </div>
-              <form onSubmit={formik.handleSubmit} className={`${styles.commentsArea}`}>
 
-                <div className={styles.inputDiv}>
-                  <textarea
-                    id="comment"
-                    name="comment"
-                    onChange={formik.handleChange}
-                    placeholder='Comment . . .'
-                    value={formik.values.comment}
-                  />
-                  <button type="submit">Comment</button>
-                </div>
+          <div className="text-center">
+            <h3>Product Reviews</h3>
+          </div>
+          <form onSubmit={formik.handleSubmit} className={`${styles.commentsArea}`}>
 
-              </form>
-
-              <div className={`${styles.userComments}`}>
-                {commentsArray.map((item) => (
-                  <div key={item._id} className={styles.commentsItem}>
-                    <div className={styles.commentsContent}>
-                      {item.comment}
-                    </div>
-                    <div className={styles.commentsAuthor}>
-                      <div><RxAvatar size={20} /></div>
-                      <div>{item.user_id}</div>
-                    </div>
-                    <div className={styles.commentsDate}>
-                      {item.createdAt}
-                    </div>
-                    <div className="stars">
-                      <AiTwotoneStar color='orange' size={15} />
-                      <AiTwotoneStar color='orange' size={15} />
-                      <AiTwotoneStar color='orange' size={15} />
-                      <AiTwotoneStar color='orange' size={15} />
-                      <AiTwotoneStar color='orange' size={15} />
-                    </div>
-                  </div>
-                )
-                )}
-
-                <div className="text-center d-flex justify-content-center">
-                  <button disabled={commentsArray.length === data.length} onClick={handleToShowMore} className='btn btn-outline-secondary btn-lg w-50 d-flex align-items-center justify-content-center '>{commentsArray.length === 0 ? 'Show Comments' : 'Load More'} <IoIosArrowDown size={14} /></button>
-                </div>
-              </div>
+            <div className={styles.inputDiv}>
+              <textarea
+                id="comment"
+                name="comment"
+                onChange={formik.handleChange}
+                placeholder='Comment . . .'
+                value={formik.values.comment}
+              />
+              <button type="submit">Comment</button>
             </div>
 
+          </form>
 
-            <div className={`${styles.innerRight} col-lg-4`}>
-              <div className={styles.content}>
-                <h1>Special Product card</h1>
-                <img src={speacialImg} alt="" />
-               
+          <div className={`${styles.userComments}`}>
+            {data?.slice(0, next)?.map((item) => (
+              <div key={item._id} className={styles.commentsItem}>
+                <div className={styles.commentsContent}>
+                  {item.comment}
+                </div>
+                <div className={styles.commentsAuthor}>
+                  <div><RxAvatar size={20} /></div>
+                  <div>{item.user_id}</div>
+                </div>
+                <div className={styles.commentsDate}>
+                  {item.createdAt}
+                </div>
+                <div className="stars">
+                  <AiTwotoneStar color='orange' size={15} />
+                  <AiTwotoneStar color='orange' size={15} />
+                  <AiTwotoneStar color='orange' size={15} />
+                  <AiTwotoneStar color='orange' size={15} />
+                  <AiTwotoneStar color='orange' size={15} />
+                </div>
               </div>
+            )
+            )}
 
+            <div className="text-center d-flex justify-content-center">
+              <button disabled={next >= data.length} onClick={handleMoreComment} className='btn btn-outline-secondary btn-lg w-25 d-flex align-items-center justify-content-center '>
+                Load More
+                <IoIosArrowDown size={14} />
+              </button>
             </div>
-
           </div>
         </div>
       </div>

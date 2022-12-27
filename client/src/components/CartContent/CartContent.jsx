@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Modal from 'react-modal';
+import { useAuth } from '../../context/AuthContext';
 const customStyles = {
     content: {
         top: '50%',
@@ -23,6 +24,8 @@ const CartContent = () => {
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
+    const {user} = useAuth();
+
     function openModal() {
         setIsOpen(true);
     }
@@ -37,6 +40,7 @@ const CartContent = () => {
             items: cart,
         },
         onSubmit: async values => {
+            values.user= user;
             const res = await axios.post('/orders', values)
             alert('ORDERED')
         },

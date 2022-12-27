@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom'
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { VscAccount } from 'react-icons/vsc'
 import MobileMenu from '../MobileMenu/MobileMenu'
-
 import Badge from '@mui/material/Badge';
-
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useCart } from '../../context/CartContext'
 import { useAuth } from '../../context/AuthContext'
+
 const Header = () => {
 
     const [anchorEl, setAnchorEl] = useState(null);
