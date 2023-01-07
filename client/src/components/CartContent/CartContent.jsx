@@ -41,7 +41,7 @@ const CartContent = () => {
         },
         onSubmit: async values => {
             values.user= user;
-            const res = await axios.post('/orders', values)
+            const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/orders`, values)
             alert('ORDERED')
         },
     });

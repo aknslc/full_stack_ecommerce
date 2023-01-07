@@ -20,7 +20,7 @@ const Register = () => {
     onSubmit: async values => {
 
       try {
-        await axios.post('/auth/register', values)
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, values)
         navigate('/login')
       } catch (err) {
         setErrorMessage(err.response.data.message)

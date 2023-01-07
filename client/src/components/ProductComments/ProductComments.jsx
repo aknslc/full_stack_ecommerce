@@ -30,7 +30,7 @@ const ProductComments = () => {
     },
     onSubmit: async values => {
       if (user) {
-        await axios.post(`/comments/${id}`, values)
+        await axios.post(`${process.env.REACT_APP_BASE_URL}/comments/${id}`, values)
         window.location.reload();
       } else {
         alert("please login")

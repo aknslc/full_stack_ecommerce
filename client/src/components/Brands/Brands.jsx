@@ -18,7 +18,6 @@ const Brands = () => {
                     slidesToShow: 4,
                     slidesToScroll: 2,
 
-
                 }
             },
             {
