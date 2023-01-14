@@ -11,7 +11,7 @@ const useFetch = (url) => {
             setLoading(true)
             try {
                 const res = await axios.get(`${process.env.REACT_APP_BASE_URL}${url}`)
-                setData(res.data)
+                setData(res?.data)
             } catch (err) {
                 setError(err)
             }
